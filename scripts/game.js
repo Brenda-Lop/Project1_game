@@ -1,5 +1,5 @@
 class Game {
-    constructor(ctx, width, height, player1, player2) {
+    constructor(ctx, width, height, player1, player2, ball, goalLeft, goalRight) {
         this.frames = 0;
         this.ctx = ctx;
         this.width = width;
@@ -7,7 +7,10 @@ class Game {
         this.player1 = player1;
         this.player2 = player2;
         this.ball = ball;
+        this.goalLeft = goalLeft;
+        this.goalRight = goalRight;
         this.interval = null;
+        this.isRunning = false;
     }
 
     start() {
@@ -37,9 +40,39 @@ class Game {
     }
 
     score() {
-      
+      /*   if (crashed) {
+            this.stop()
+            this.ctx.font = '40px sans-serif';
+            this.ctx.fillStyle = 'orange solid';
+            this.ctx.fillText('GAME OVER', 400, 250);
+        } */
        
     }
+
+    updateGameArea = () => {
+        this.clear();  
+        drawRect();
+        this.score();
+        this.checkWinner();   
+        this.player1.draw();
+        this.player2.draw();
+        this.ball.draw();
+        this.goalLeft.draw()
+        this.goalRight.draw();
+        this.player1.newPos();
+        this.player2.newPos();
+        this.ball.newPos();
+        
+    }
+}
+    /* 
+  let speed1 = 0;
+  let speed2 = 0;
+  let speed3 = 0;
+
+  function movingBall () {
+   speed3 += 2;
+   ball.draw(speed3 % 900, speed3 % 600, 100, 100); */
 
 
    /* updateBall() {
@@ -54,29 +87,8 @@ class Game {
       ball.speedX *= -1;
     }
   } */
-  
 
-    updateGameArea = () => {
-        this.clear();
-        this.score();
-        this.checkWinner();   
-        this.player1.draw();
-        this.player2.draw();
-        this.ball.drawBall();
-        this.player1.newPos();
-        this.player2.newPos();
-        this.ball.newPos();
-    }
-}
 
-/* 
-let speed1 = 0;
-let speed2 = 0;
-let speed3 = 0;
-
-function movingBall () {
-   speed3 += 2;
-   ball.draw(speed3 % 900, speed3 % 600, 100, 100); */
      
 
 

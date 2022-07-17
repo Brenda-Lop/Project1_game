@@ -16,14 +16,21 @@ class Component {
         this.y += this.speedY;
     }
 
+    newPosPlayers() {
+        if (this.speedY <= cHeight) {
+        this.y += this.speedY
+        }
+    }
+
     draw() {
         this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.x, this.y, this.width, this.height,);
     }
-
+     
 }
    
-const ball = {
+
+/* const ball = {
     x: 500,
     y: 300,
     vx: 3,
@@ -38,7 +45,7 @@ const ball = {
       ctx.fill();
     }
   };
-
+ */
 
 
     
