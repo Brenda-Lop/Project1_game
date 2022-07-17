@@ -30,17 +30,18 @@ backImg.src = '../docs/assets/images/table__3-removebg-preview.png';
 
 // constructor (width, height, color, x, y, ctx)
 
-let player1 = new Component(10, 100, 'black', 100, 260, ctx); 
-let player2 = new Component(10, 100, 'black', 900, 260, ctx);
+let player1 = new Component(10, 60, 'black', 100, 280, ctx); 
+let player2 = new Component(10, 60, 'black', 900, 280, ctx);
 let ball = new Component (30, 30, 'yellow', 500, 300, ctx);
 let goalLeft = new Component (40, 230, 'black', 0 , 190, ctx);
 let goalRight = new Component (40, 230, 'black', 960, 190, ctx);
 
 player1.draw();
 player2.draw();
+ball.draw();
 goalLeft.draw();
 goalRight.draw();
-ball.draw();
+
 
 
 //ball.newPos(draw());
@@ -73,14 +74,16 @@ startBtn.addEventListener('click', () =>  {
 }
 });
 
-ball.speedX = 5;
-ball.speedY = 5;
+ball.speedX = 4;
+ball.speedY = 4;
+let gravity = 0.1;
 
  // WHAT IS WRONG WITH .CLEAR(), .NEWPOS() AND UPDATEGAMEAREA() METHODS?
 
     function update() {
     
-    ball.newPos();
+    ball.speedY += gravity;
+    
 
      if (ball.y + ball.speedY > cHeight || ball.y + ball.speedY < 0) {
         ball.speedY *= -2;
@@ -97,8 +100,8 @@ ball.speedY = 5;
 
    // creating players moves
   
-   player1.speedY = 2
-   player2.speedY = 2
+   player1.speedY = 4;
+   player2.speedY = 4;
 
    document.addEventListener('keydown', (e) => {
     switch(e.code) {
