@@ -11,14 +11,49 @@ class Component {
       this.isRunning = false;
     }
 
+    newPos() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+
     draw() {
         this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        this.ctx.fillRect(this.x, this.y, this.width, this.height,);
     }
+
 }
    
+const ball = {
+    x: 500,
+    y: 300,
+    vx: 3,
+    vy: 3,
+    radius: 25,
+    color: 'yellow',
+    drawBall: function () {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+      ctx.closePath();
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+  };
+
+
 
     
 
+/* function updateBall() {
+  // game.clear();
+  ball.draw(); 
+  ball.x += ball.speedX;
+  ball.y += ball.speedY;
+  if (ball.y + ball.speedY > game.height || ball.y + ball.speedY < 0) {
+    ball.speedX *= -1;
+  }
+  if (ball.x + ball.speedX > game.width || ball.x + ball.speedX< 0) {
+    ball.speedX *= -1;
+  }
+}
 
-console.log('hello')
+updateBall(); */

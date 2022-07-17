@@ -6,6 +6,7 @@ class Game {
         this.height = height;
         this.player1 = player1;
         this.player2 = player2;
+        this.ball = ball;
         this.interval = null;
     }
 
@@ -23,23 +24,59 @@ class Game {
     }
 
     reset = () => {
-        
+        this.player1.y = 260;
+        this.player2.y = 260;
+        this.ball.x = 500;
+        this.ball.y = 300;
+        this.frames = 0;
+        this.start();
     }
 
-    checkGameOver = () => {
-     
+    checkWinner()  {
+    
     }
 
     score() {
+      
        
     }
+
+
+   /* updateBall() {
+    ctx.clear();
+    ball.draw(); 
+    ball.x += ball.speedX;
+    ball.y += ball.speedY;
+    if (ball.y + ball.speedY > game.height || ball.y + ball.speedY < 0) {
+      ball.speedY *= -1;
+    }
+    if (ball.x + ball.speedX > game.width || ball.x + ball.speedX < 0) {
+      ball.speedX *= -1;
+    }
+  } */
+  
 
     updateGameArea = () => {
         this.clear();
         this.score();
-        this.checkGameOver();   
-        this.player.newPos();
-        this.player.draw();
+        this.checkWinner();   
+        this.player1.draw();
+        this.player2.draw();
+        this.ball.drawBall();
+        this.player1.newPos();
+        this.player2.newPos();
+        this.ball.newPos();
     }
 }
+
+/* 
+let speed1 = 0;
+let speed2 = 0;
+let speed3 = 0;
+
+function movingBall () {
+   speed3 += 2;
+   ball.draw(speed3 % 900, speed3 % 600, 100, 100); */
+     
+
 

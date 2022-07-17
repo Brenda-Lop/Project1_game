@@ -5,6 +5,15 @@
     
 }
 
- #table {
- border-radius: 190px 180px 160px 160px;
-} 
+ /* #table {
+ background-image: url('../docs/assets/images/table__3-removebg-preview.png');
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: 950px 550px;
+} */ 
+
+#startBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
