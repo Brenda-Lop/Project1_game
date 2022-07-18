@@ -1,33 +1,63 @@
 class Component {
-    constructor (width, height, color, x, y, ctx) {
+    constructor (width, height, color, x, y, ctx, speedX, speedY) {
       this.width = width;
       this.height = height;
       this.color = color;
       this.x = x;
       this.y = y;
       this.ctx = ctx;
-      this.speedX = 0; //acceleration
-      this.speedY = 0; // acceleration
+      this.speedX = speedX; //acceleration
+      this.speedY = speedY; // acceleration
       this.isRunning = false;
     }
 
-    newPos() {
+    ballPos() {
         this.x += this.speedX;
-        this.y += this.speedY;
+        this.y += this.speedY; 
+          if ((this.y + this.height) + this.speedY > 600 || this.y + this.speedY < 0) {
+        this.speedY *= -1;
+      }
+      if ((this.x + this.width) + this.speedX > 1000 || this.x + this.speedX < 0) {
+        this.speedX *= -1;
+      }
+
     }
+
+    newPos() {
+      this.y += this.speedY;
+    }
+
+    moveUp() {
+      this.speedY -= 4;
+    }
+
+    moveDown() {
+
+      this.speedY += 4;
+    }
+
 
     newPosPlayers() {
         if (this.speedY <= cHeight) {
-        this.y += this.speedY
+        this.y -= this.speedY;
+        } else if(this.speedY > 0) {
+         this.y += this.speedY;
         }
-    }
+      }
 
     draw() {
         this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.x, this.y, this.width, this.height,);
-    }
-     
-}
+        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+      }  
+  }
+
+/* class Ball extends Component {
+  constructor(width, height, color, x, y, ctx, speedX, speedY) {
+    super( width, height, color, x, y, ctx);
+    this.speedX = speedX;
+    this.speedY = speedY; 
+  }
+} */
    
 
 /* const ball = {
@@ -47,8 +77,6 @@ class Component {
   };
  */
 
-
-    
 
 /* function updateBall() {
   // game.clear();

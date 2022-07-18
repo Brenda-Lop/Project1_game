@@ -27,8 +27,10 @@ class Game {
     }
 
     reset = () => {
-        this.player1.y = 260;
-        this.player2.y = 260;
+        this.player1.x = 100;
+        this.player2.x = 900;
+        this.player1.y = 280;
+        this.player2.y = 280;
         this.ball.x = 500;
         this.ball.y = 300;
         this.frames = 0;
@@ -45,25 +47,34 @@ class Game {
             this.ctx.font = '40px sans-serif';
             this.ctx.fillStyle = 'orange solid';
             this.ctx.fillText('GAME OVER', 400, 250);
-        } */
-       
+       } */      
     }
 
-    updateGameArea = () => {
-        this.clear();  
-        drawRect();
-        this.score();
-        this.checkWinner();   
+
+    drawGame() {
         this.player1.draw();
         this.player2.draw();
         this.ball.draw();
         this.goalLeft.draw()
         this.goalRight.draw();
-        this.player1.newPos();
-        this.player2.newPos();
-        this.ball.newPos();
-        
     }
+
+    updateGameArea = () => {
+        this.clear();   
+        drawRect();
+        this.score();
+        this.checkWinner();   
+        this.drawGame();
+
+        this.player1.newPos();
+        this.player1.moveUp();
+        this.player1.moveDown();
+        this.player2.newPos();
+        this.player2.moveUp();
+        this.player2.moveDown();
+        this.ball.ballPos()
+    }
+
 }
     /* 
   let speed1 = 0;
