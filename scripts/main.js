@@ -32,32 +32,14 @@ backImg.src = '../docs/assets/images/table__3-removebg-preview.png';
 
 let player1 = new Component(10, 60, 'black', 100, 280, ctx, 0, 0); 
 let player2 = new Component(10, 60, 'black', 900, 280, ctx, 0, 0);
-let ball = new Component (30, 30, 'yellow', 500, 300, ctx, 3, 3);
-let goalLeft = new Component (40, 230, 'black', 0 , 190, ctx, 0, 0);
-let goalRight = new Component (40, 230, 'black', 960, 190, ctx, 0, 0);
+let ball = new Component(30, 30, 'yellow', 500, 300, ctx, 3, 3);
+let goalLeft = new Component(60, 230, 'black', 0 , 190, ctx, 0, 0);
+let goalRight = new Component(60, 230, 'black', 940, 190, ctx, 0, 0);
 
-/* player1.draw();
-player2.draw();
-ball.draw();
-goalLeft.draw();
-goalRight.draw(); */
 
 //new Game(ctx, cWidth, cHeight, player1, player2, ball)
 let game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
 
-
-let gravity = 0.1;
-
-//ball.newPos();
-
- // WHAT IS WRONG WITH .CLEAR(), .NEWPOS() AND UPDATEGAMEAREA() METHODS?
-    
-   // ball.speedY += gravity;
-
-   // creating players moves
-  
-   /* player1.speedY = 4;
-   player2.speedY = 4; */
 
    document.addEventListener('keydown', (e) => {
     switch(e.code) {

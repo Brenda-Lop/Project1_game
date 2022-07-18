@@ -11,20 +11,39 @@ class Component {
       this.isRunning = false;
     }
 
-    ballPos() {
+      ballPos() {
         this.x += this.speedX;
         this.y += this.speedY; 
-          if ((this.y + this.height) + this.speedY > 600 || this.y + this.speedY < 0) {
+
+        if ((this.y + this.height) + this.speedY > cHeight || this.y + this.speedY < 0) {
         this.speedY *= -1;
-      }
-      if ((this.x + this.width) + this.speedX > 1000 || this.x + this.speedX < 0) {
+      } else if ((this.x + this.width) + this.speedX > cWidth || this.x + this.speedX < 0) {
+        this.speedX *= -1;
+      } else if(this.speedX === player1.y) {
+        this.speedX *= -1;
+      } else if (this.speedX === player2.y) {
         this.speedX *= -1;
       }
+
+     /*  if ((this.y + this.height) + this.speedY > cHeight || this.y + this.speedY < 0) {
+        this.speedY *= -1;
+      }
+      if ((this.x + this.width) + this.speedX === player2.height || this.x + this.speedX === player1.height) {
+        this.speedX *= -1;
+      } */
 
     }
 
     newPos() {
+
       this.y += this.speedY;
+
+      if (this.y > canvas.height) {
+        this.y =  600 - (600 - this.height);
+
+      } else if (this.y < 0) {
+        this.y = 0;
+      }
     }
 
     moveUp() {
@@ -32,18 +51,46 @@ class Component {
     }
 
     moveDown() {
-
       this.speedY += 4;
     }
 
+    left() {
+      return this.x;
+    }
 
-    newPosPlayers() {
+    right() {
+      return this.x + this.width;
+    }
+
+    top() {
+      return this.y;
+    }
+
+    bottom() {
+      return this.y + this.height;
+    }
+
+   /*  crashWith (ball) {
+
+      if()
+    return !(
+    this.player1.right() < ball.left() || 
+    this.player2.left() > ball.right()
+    )};
+  /* this.right() < ball.left() || 
+  this.left() > ball.right()
+  );
+} */
+  
+
+
+   /*  newPosPlayers() {
         if (this.speedY <= cHeight) {
         this.y -= this.speedY;
         } else if(this.speedY > 0) {
          this.y += this.speedY;
         }
-      }
+      } */
 
     draw() {
         this.ctx.fillStyle = this.color;

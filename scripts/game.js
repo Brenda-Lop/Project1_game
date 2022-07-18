@@ -37,9 +37,26 @@ class Game {
         this.start();
     }
 
-    checkWinner()  {
-    
+    goal() {
+        
+         
     }
+
+   checkWinner()  {
+   /* 
+    if (this.player1.goal() === 7 ) {
+            this.stop()
+            this.ctx.font = '40px sans-serif';
+            this.ctx.fillStyle = 'orange solid';
+            this.ctx.fillText('Player 1 is the winner!', 400, 250);
+    } else if ( this.player2.goal() === 7) {
+        this.stop()
+            this.ctx.font = '40px sans-serif';
+            this.ctx.fillStyle = 'orange solid';
+            this.ctx.fillText('Player 2 is the winner!', 400, 250);
+    } */
+
+    } 
 
     score() {
       /*   if (crashed) {
@@ -52,6 +69,7 @@ class Game {
 
 
     drawGame() {
+        drawRect();
         this.player1.draw();
         this.player2.draw();
         this.ball.draw();
@@ -60,12 +78,10 @@ class Game {
     }
 
     updateGameArea = () => {
-        this.clear();   
-        drawRect();
+        this.clear();
+        this.drawGame();   
         this.score();
         this.checkWinner();   
-        this.drawGame();
-
         this.player1.newPos();
         this.player1.moveUp();
         this.player1.moveDown();
@@ -76,28 +92,6 @@ class Game {
     }
 
 }
-    /* 
-  let speed1 = 0;
-  let speed2 = 0;
-  let speed3 = 0;
-
-  function movingBall () {
-   speed3 += 2;
-   ball.draw(speed3 % 900, speed3 % 600, 100, 100); */
-
-
-   /* updateBall() {
-    ctx.clear();
-    ball.draw(); 
-    ball.x += ball.speedX;
-    ball.y += ball.speedY;
-    if (ball.y + ball.speedY > game.height || ball.y + ball.speedY < 0) {
-      ball.speedY *= -1;
-    }
-    if (ball.x + ball.speedX > game.width || ball.x + ball.speedX < 0) {
-      ball.speedX *= -1;
-    }
-  } */
 
 
      
