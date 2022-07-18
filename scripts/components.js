@@ -11,36 +11,42 @@ class Component {
       this.isRunning = false;
     }
 
-      ballPos() {
-        this.x += this.speedX;
-        this.y += this.speedY; 
+    ballPos() {
+      this.x += this.speedX;
+      this.y += this.speedY;
 
-        if ((this.y + this.height) + this.speedY > cHeight || this.y + this.speedY < 0) {
-        this.speedY *= -1;
-      } else if ((this.x + this.width) + this.speedX > cWidth || this.x + this.speedX < 0) {
-        this.speedX *= -1;
-      } else if(this.speedX === player1.y) {
-        this.speedX *= -1;
-      } else if (this.speedX === player2.y) {
-        this.speedX *= -1;
-      }
-
-     /*  if ((this.y + this.height) + this.speedY > cHeight || this.y + this.speedY < 0) {
-        this.speedY *= -1;
-      }
-      if ((this.x + this.width) + this.speedX === player2.height || this.x + this.speedX === player1.height) {
-        this.speedX *= -1;
-      } */
-
+      if ((this.y + this.height) + this.speedY > cHeight || this.y + this.speedY < 0) {
+      this.speedY *= -1;
+    } else if ((this.x + this.width) + this.speedX > cWidth || this.x + this.speedX < 0) {
+      this.speedX *= -1;
+    } else if(this.detectPlayerOneCollision()) {
+      this.speedX *= -1;
+    } else if (this.detectPlayerTwoCollision()) {
+      this.speedX *= -1;
     }
+
+  }
+
+  detectPlayerOneCollision(){
+      return (this.y + this.speedY) > player1.y &&
+          this.x + this.width > player1.x &&
+          this.x < player1.x + player1.width &&
+          this.y + this.speedY < player1.y + player1.height
+  }
+
+  detectPlayerTwoCollision(){
+      return this.y + this.speedY > player2.y &&
+          this.x + this.width > player2.x &&
+          this.x < player2.x + player2.width &&
+          this.y + this.speedY < player2.y + player2.height
+  }
 
     newPos() {
 
       this.y += this.speedY;
 
-      if (this.y > canvas.height) {
-        this.y =  600 - (600 - this.height);
-
+      if (this.y > cHeight - this.height) {
+        this.y  = cHeight - this.height;
       } else if (this.y < 0) {
         this.y = 0;
       }
