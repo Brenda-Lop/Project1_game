@@ -1,5 +1,5 @@
 class Game {
-    constructor(ctx, width, height, player1, player2, ball, goalLeft, goalRight) {
+    constructor(ctx, width, height, player1, player2, ball, goalLeft, goalRight, scorePlayer1, scorePlayer2) {
         this.frames = 0;
         this.ctx = ctx;
         this.width = width;
@@ -9,6 +9,8 @@ class Game {
         this.ball = ball;
         this.goalLeft = goalLeft;
         this.goalRight = goalRight;
+        this.scorePlayer1 = scorePlayer1;
+        this.scorePlayer2 = scorePlayer2;
         this.interval = null;
         this.isRunning = false;
     }
@@ -35,36 +37,38 @@ class Game {
         this.ball.y = 300;
         this.frames = 0;
         this.start();
-    }
-
-    goal() {
-        
-         
-    }
-
-   checkWinner()  {
-   /* 
-    if (this.player1.goal() === 7 ) {
-            this.stop()
-            this.ctx.font = '40px sans-serif';
-            this.ctx.fillStyle = 'orange solid';
-            this.ctx.fillText('Player 1 is the winner!', 400, 250);
-    } else if ( this.player2.goal() === 7) {
-        this.stop()
-            this.ctx.font = '40px sans-serif';
-            this.ctx.fillStyle = 'orange solid';
-            this.ctx.fillText('Player 2 is the winner!', 400, 250);
-    } */
-
-    } 
-
+     }      
+ 
     score() {
-      /*   if (crashed) {
-            this.stop()
+
+        this.scorePlayer1 = 0;
+        this.scorePlayer2 = 0;
+
+        if (this.detectPlayerOneGoal) {
+            this.scorePlayer1++
+        }
+        if (this.detectPlayerTwoGoal) {
+            this.scorePlayer2++
+        }
             this.ctx.font = '40px sans-serif';
-            this.ctx.fillStyle = 'orange solid';
-            this.ctx.fillText('GAME OVER', 400, 250);
-       } */      
+            this.ctx.fillStyle = 'white';
+            this.ctx.fillText(`${this.scorePlayer1} | ${this.scorePlayer2}`, 450, 30);
+      }
+
+
+    checkWinner() {
+     if(this.scorePlayer1 === 5) {
+        this.stop();
+        this.ctx.font = '40px sans-serif';
+        this.ctx.fillStyle = 'black solid';
+        this.ctx.fillText('Player 1 is the winner!', 500, 300);
+       }
+     if(this.scorePlayer2 === 5) {
+        this.stop();
+        this.ctx.font = '40px sans-serif';
+        this.ctx.fillStyle = 'black solid';
+        this.ctx.fillText('Player 2 is the winner!', 500, 300);
+       }
     }
 
 
@@ -88,7 +92,9 @@ class Game {
         this.player2.newPos();
         this.player2.moveUp();
         this.player2.moveDown();
-        this.ball.ballPos()
+        this.ball.ballPos();
+      //  this.detectPlayerOneGoal();
+     // this.detectPlayerTwoGoal();
     }
 
 }

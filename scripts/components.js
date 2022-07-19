@@ -23,23 +23,47 @@ class Component {
       this.speedX *= -1;
     } else if (this.detectPlayerTwoCollision()) {
       this.speedX *= -1;
+    } else if (this.detectPlayerOneGoal()) {
+      this.speedX += 4;
+      this.speedY += 4;
+      this.reset();
+    } else if (this.detectPlayerTwoGoal()) {
+      this.speedX += 4;
+      this.speedY += 4;
+      this.reset();
     }
 
   }
 
-  detectPlayerOneCollision(){
-      return (this.y + this.speedY) > player1.y &&
+  detectPlayerOneGoal() {
+    return this.x < goalRight.x && 
+    this.x > (goalRight.x + goalRight.width) &&
+    this.y < goalRight.y && 
+    this.y > (goalRight.y + goalRight.height)
+ }
+
+  detectPlayerTwoGoal() {
+
+  return this.x > goalLeft.x && 
+   this.x < (goalLeft.x + goalLeft.width) &&
+   this.y >  goalLeft.y &&
+   this.y < (goalLeft.y + goalLeft.height) 
+ }
+
+ detectPlayerOneCollision() {
+      return (this.y + this.speedY) > player1.y - player1.height &&
           this.x + this.width > player1.x &&
           this.x < player1.x + player1.width &&
           this.y + this.speedY < player1.y + player1.height
-  }
+         } 
+    
 
-  detectPlayerTwoCollision(){
-      return this.y + this.speedY > player2.y &&
+  detectPlayerTwoCollision() {
+      return this.y + this.speedY > player2.y - player2.height &&
           this.x + this.width > player2.x &&
           this.x < player2.x + player2.width &&
           this.y + this.speedY < player2.y + player2.height
-  }
+      }
 
     newPos() {
 
@@ -76,72 +100,10 @@ class Component {
       return this.y + this.height;
     }
 
-   /*  crashWith (ball) {
-
-      if()
-    return !(
-    this.player1.right() < ball.left() || 
-    this.player2.left() > ball.right()
-    )};
-  /* this.right() < ball.left() || 
-  this.left() > ball.right()
-  );
-} */
-  
-
-
-   /*  newPosPlayers() {
-        if (this.speedY <= cHeight) {
-        this.y -= this.speedY;
-        } else if(this.speedY > 0) {
-         this.y += this.speedY;
-        }
-      } */
-
     draw() {
         this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.x, this.y, this.width, this.height);
       }  
   }
 
-/* class Ball extends Component {
-  constructor(width, height, color, x, y, ctx, speedX, speedY) {
-    super( width, height, color, x, y, ctx);
-    this.speedX = speedX;
-    this.speedY = speedY; 
-  }
-} */
-   
 
-/* const ball = {
-    x: 500,
-    y: 300,
-    vx: 3,
-    vy: 3,
-    radius: 25,
-    color: 'yellow',
-    drawBall: function () {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-      ctx.closePath();
-      ctx.fillStyle = this.color;
-      ctx.fill();
-    }
-  };
- */
-
-
-/* function updateBall() {
-  // game.clear();
-  ball.draw(); 
-  ball.x += ball.speedX;
-  ball.y += ball.speedY;
-  if (ball.y + ball.speedY > game.height || ball.y + ball.speedY < 0) {
-    ball.speedX *= -1;
-  }
-  if (ball.x + ball.speedX > game.width || ball.x + ball.speedX< 0) {
-    ball.speedX *= -1;
-  }
-}
-
-updateBall(); */
