@@ -1,5 +1,5 @@
 class Game {
-    constructor(ctx, width, height, player1, player2, ball, goalLeft, goalRight, scorePlayer1, scorePlayer2) {
+    constructor(ctx, width, height, player1, player2, ball, goalLeft, goalRight) {
         this.frames = 0;
         this.ctx = ctx;
         this.width = width;
@@ -9,8 +9,8 @@ class Game {
         this.ball = ball;
         this.goalLeft = goalLeft;
         this.goalRight = goalRight;
-        this.scorePlayer1 = scorePlayer1;
-        this.scorePlayer2 = scorePlayer2;
+        this.scorePlayer1 = 0;
+        this.scorePlayer2 = 0;
         this.interval = null;
         this.isRunning = false;
     }
@@ -29,32 +29,47 @@ class Game {
     }
 
     reset = () => {
-        this.player1.x = 100;
-        this.player2.x = 900;
-        this.player1.y = 280;
-        this.player2.y = 280;
+
         this.ball.x = 500;
         this.ball.y = 300;
         this.frames = 0;
-        this.start();
+        //this.start();
      }      
  
+
+  detectPlayerOneGoal() {
+
+    return (this.ball.right() >= this.goalRight.left()  &&
+    this.ball.bottom() >= this.goalRight.top() &&
+    this.ball.top() <= this.goalRight.bottom())
+
+    
+
+ }
+
+ detectPlayerTwoGoal() {
+
+    return (this.ball.left() <= this.goalLeft.right()  &&
+    this.ball.bottom() >= this.goalLeft.top() &&
+    this.ball.top() <= this.goalLeft.bottom())
+
+ }
     score() {
 
-        this.scorePlayer1 = 0;
-        this.scorePlayer2 = 0;
-
-        if (this.detectPlayerOneGoal) {
+        if (this.detectPlayerOneGoal()) {
             this.scorePlayer1++
+            this.reset()
         }
-        if (this.detectPlayerTwoGoal) {
+        if (this.detectPlayerTwoGoal()) {
             this.scorePlayer2++
+            this.reset()
         }
-            this.ctx.font = '40px sans-serif';
+            this.ctx.font = '50px sans-serif';
             this.ctx.fillStyle = 'white';
-            this.ctx.fillText(`${this.scorePlayer1} | ${this.scorePlayer2}`, 450, 30);
+            this.ctx.fillText(`${this.scorePlayer1} | ${this.scorePlayer2}`, 450, 50);
       }
 
+      
 
     checkWinner() {
      if(this.scorePlayer1 === 5) {
@@ -76,9 +91,10 @@ class Game {
         drawRect();
         this.player1.draw();
         this.player2.draw();
-        this.ball.draw();
+        this.ball.drawBall();
         this.goalLeft.draw()
         this.goalRight.draw();
+        
     }
 
     updateGameArea = () => {

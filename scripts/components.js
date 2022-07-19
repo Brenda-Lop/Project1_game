@@ -1,5 +1,5 @@
 class Component {
-    constructor (width, height, color, x, y, ctx, speedX, speedY) {
+    constructor (width, height, color, x, y, ctx, speedX, speedY, img) {
       this.width = width;
       this.height = height;
       this.color = color;
@@ -9,61 +9,59 @@ class Component {
       this.speedX = speedX; //acceleration
       this.speedY = speedY; // acceleration
       this.isRunning = false;
+      const ballImg = new Image();
+      ballImg.addEventListener('load', () => {}); 
+      ballImg.src = img;
+      this.img = ballImg; 
     }
 
     ballPos() {
       this.x += this.speedX;
       this.y += this.speedY;
 
-      if ((this.y + this.height) + this.speedY > cHeight || this.y + this.speedY < 0) {
+     if ((this.y + this.height) + this.speedY > cHeight || this.y + this.speedY < 0) {
       this.speedY *= -1;
     } else if ((this.x + this.width) + this.speedX > cWidth || this.x + this.speedX < 0) {
       this.speedX *= -1;
     } else if(this.detectPlayerOneCollision()) {
       this.speedX *= -1;
     } else if (this.detectPlayerTwoCollision()) {
-      this.speedX *= -1;
-    } else if (this.detectPlayerOneGoal()) {
-      this.speedX += 4;
-      this.speedY += 4;
-      this.reset();
-    } else if (this.detectPlayerTwoGoal()) {
-      this.speedX += 4;
-      this.speedY += 4;
-      this.reset();
-    }
+      this.speedX *= -1
 
+    } 
   }
 
-  detectPlayerOneGoal() {
-    return this.x < goalRight.x && 
-    this.x > (goalRight.x + goalRight.width) &&
-    this.y < goalRight.y && 
-    this.y > (goalRight.y + goalRight.height)
- }
+/*   detectPlayerOneGoal() {
 
-  detectPlayerTwoGoal() {
+    return (this.left() <= goalLeft.right() &&
+    this.bottom() >= goalLeft.top() &&
+    this.top() <= goalLeft.bottom())
 
-  return this.x > goalLeft.x && 
-   this.x < (goalLeft.x + goalLeft.width) &&
-   this.y >  goalLeft.y &&
-   this.y < (goalLeft.y + goalLeft.height) 
- }
+ } */
+
+/*   detectPlayerTwoGoal() {
+   // return this.left() > goalRight.right()
+      
+      return this.x < goalLeft.x && 
+        this.x > (goalLeft.x + goalLeft.width) &&
+        this.y <  goalLeft.y &&
+        this.y > (goalLeft.y + goalLeft.height) 
+      } */
 
  detectPlayerOneCollision() {
-      return (this.y + this.speedY) > player1.y - player1.height &&
-          this.x + this.width > player1.x &&
-          this.x < player1.x + player1.width &&
-          this.y + this.speedY < player1.y + player1.height
-         } 
+      return (this.y + this.speedY) >= player1.y - player1.height &&
+          this.x + this.width >= player1.x &&
+          this.x <= player1.x + player1.width &&
+          this.y + this.speedY <= player1.y + player1.height
+        } 
     
 
   detectPlayerTwoCollision() {
-      return this.y + this.speedY > player2.y - player2.height &&
-          this.x + this.width > player2.x &&
-          this.x < player2.x + player2.width &&
-          this.y + this.speedY < player2.y + player2.height
-      }
+      return this.y + this.speedY >= player2.y - player2.height &&
+          this.x + this.width >= player2.x &&
+          this.x <= player2.x + player2.width &&
+          this.y + this.speedY <= player2.y + player2.height
+        }
 
     newPos() {
 
@@ -103,7 +101,11 @@ class Component {
     draw() {
         this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.x, this.y, this.width, this.height);
-      }  
+      } 
+      
+      drawBall(){
+        this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+      }
   }
 
 
