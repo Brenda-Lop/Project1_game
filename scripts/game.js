@@ -33,6 +33,16 @@ class Game {
         this.ball.y = 300;
         this.frames = 0;
      }      
+
+     resetGame = () => {
+        this.player1.y = 280;
+        this.player2.y = 280;
+        this.ball.x = 500;
+        this.ball.y = 300;
+        this.scorePlayer1 = 0;
+        this.scorePlayer2 = 0;
+        this.frames = 0;
+     }
  
 
     detectPlayerOneGoal() {
@@ -103,10 +113,7 @@ class Game {
         this.player2.moveUp();
         this.player2.moveDown();
         this.ball.ballPos();
-      //  this.detectPlayerOneGoal();
-     // this.detectPlayerTwoGoal();
     }
-
 }
 
 
