@@ -29,31 +29,25 @@ class Game {
     }
 
     reset = () => {
-
         this.ball.x = 500;
         this.ball.y = 300;
         this.frames = 0;
-        //this.start();
      }      
  
 
-  detectPlayerOneGoal() {
+    detectPlayerOneGoal() {
 
     return (this.ball.right() >= this.goalRight.left()  &&
     this.ball.bottom() >= this.goalRight.top() &&
     this.ball.top() <= this.goalRight.bottom())
+    }
 
-    
-
- }
-
- detectPlayerTwoGoal() {
+    detectPlayerTwoGoal() {
 
     return (this.ball.left() <= this.goalLeft.right()  &&
     this.ball.bottom() >= this.goalLeft.top() &&
     this.ball.top() <= this.goalLeft.bottom())
-
- }
+    }
     score() {
 
         if (this.detectPlayerOneGoal()) {
@@ -76,13 +70,13 @@ class Game {
         this.stop();
         this.ctx.font = '40px sans-serif';
         this.ctx.fillStyle = 'black solid';
-        this.ctx.fillText('Player 1 is the winner!', 500, 300);
+        this.ctx.fillText('Player 1 has defeated Bozo!', 250, 300);
        }
      if(this.scorePlayer2 === 5) {
         this.stop();
         this.ctx.font = '40px sans-serif';
         this.ctx.fillStyle = 'black solid';
-        this.ctx.fillText('Player 2 is the winner!', 500, 300);
+        this.ctx.fillText(`Player 2 smashed Bozo's head!`, 250, 300);
        }
     }
 

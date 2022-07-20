@@ -10,13 +10,6 @@ ctx.fillStyle = 'red';
 ctx.fillRect(0, 0, cWidth, cHeight);
 }
 
-
-/* 
-let score = document.getElementById('score')
-message.innerHTML = 'Score'
- */
-
-
 // Images
 
 /* const backImg = new Image();
@@ -27,17 +20,6 @@ backImg.addEventListener('load', function () {
 }); 
 backImg.src = '../docs/assets/images/table__3-removebg-preview.png';
  */
-
-/* const ballImg = new Image();
-
-ballImg.addEventListener('load', function () {
-   
-    ctx.drawImage(ballImg, 30, 30, 500, 300);
-}); 
-
-ballImg.src = '../docs/assets/images/cara_bozo-removebg-preview.png'; */
-
-// constructor (width, height, color, x, y, ctx)  
 
 //default 3 
 let difficulty = 3;
@@ -83,8 +65,8 @@ document.addEventListener('keyup', (e) => {
  
 
 // starting the game
-const startBtn = document.getElementById('startBtn');
-startBtn.addEventListener('click', () =>  {   
+const easyBtn = document.getElementById('easy-btn');
+easyBtn.addEventListener('click', () =>  {   
     if(!game) {
 
      player1 = new Component(10, 60, 'black', 100, 280, ctx, 0, 0); 
@@ -94,10 +76,24 @@ startBtn.addEventListener('click', () =>  {
      goalRight = new Component(10, 350, 'black', 990, 115, ctx, 0, 0);
     game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
     game.start(); 
+
 } else if(game && !game.isRunning) {
     game.reset();
 }
 });
 
 
- 
+const medBtn = document.getElementById('med-btn');
+medBtn.addEventListener('click', () =>  {
+difficulty = 5;
+});
+
+const hardBtn = document.getElementById('hard-btn');
+hardBtn.addEventListener('click', () =>  {
+difficulty = 8;
+});
+
+const resetBtn = document.getElementById('reset');
+resetBtn.addEventListener('click', () => {
+  game.reset();
+})
