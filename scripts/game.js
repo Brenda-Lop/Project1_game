@@ -34,7 +34,7 @@ class Game {
         this.frames = 0;    
     } 
 
-    resetGame = () => {
+    resetGame = (difficulty) => {
         this.stop();
         this.player1.y = 280;
         this.player2.y = 280;
@@ -43,6 +43,8 @@ class Game {
         this.scorePlayer1 = 0;
         this.scorePlayer2 = 0;
         this.frames = 0;
+        this.ball.speedX = difficulty
+        this.ball.speedY = difficulty
         this.start();
      }
  
@@ -73,7 +75,7 @@ class Game {
             this.reset()
         }
             this.ctx.font = '50px monospace';
-            this.ctx.fillStyle = 'black';
+            this.ctx.fillStyle = 'grey';
             this.ctx.fillText(`${this.scorePlayer1} | ${this.scorePlayer2}`, 420, 50);
       }
 
@@ -83,22 +85,21 @@ class Game {
 
      if(this.scorePlayer1 === 5) {
         this.stop();
-        this.ctx.font = '40px monospace';
+        this.ctx.font = '30px monospace';
         this.ctx.fillStyle = 'black';
-        this.ctx.fillText('Player 1 has defeated Bozo!', 200, 300);
+        this.ctx.fillText( 'PLAYER 1 HAS DEFEATED BOZO!', 250, 300);
         mySound.play();
        }
 
      if(this.scorePlayer2 === 5) {
         this.stop();
-        this.ctx.font = '40px monospace';
+        this.ctx.font = '30px monospace';
         this.ctx.fillStyle = 'black';
-        this.ctx.fillText(`Player 2 smashed Bozo's head!`, 200, 300);
+        this.ctx.fillText('PLAYER 2 HAS DEFEATED BOZO!', 250, 300);
         mySound.play();
        }
 
     }
-
 
     drawGame() {
         drawRect();
@@ -123,7 +124,6 @@ class Game {
         this.player2.moveUp();
         this.player2.moveDown();
         this.ball.ballPos();
-        /* this.mySound.play(); */
     }
 }
 

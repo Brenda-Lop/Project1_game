@@ -30,24 +30,7 @@ class Component {
 
     } 
   }
-
-/*   detectPlayerOneGoal() {
-
-    return (this.left() <= goalLeft.right() &&
-    this.bottom() >= goalLeft.top() &&
-    this.top() <= goalLeft.bottom())
-
- } */
-
-/*   detectPlayerTwoGoal() {
-   // return this.left() > goalRight.right()
-      
-      return this.x < goalLeft.x && 
-        this.x > (goalLeft.x + goalLeft.width) &&
-        this.y <  goalLeft.y &&
-        this.y > (goalLeft.y + goalLeft.height) 
-      } */
-
+  
  detectPlayerOneCollision() {
       return (this.y + this.speedY) >= player1.y - player1.height &&
           this.x + this.width >= player1.x &&

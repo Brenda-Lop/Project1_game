@@ -5,32 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <title>Air Hockey</title>
+    <title>Squid Game</title>
 </head>
 
 <body>
 
+  <img src="../docs/assets/images/squid-game.png" alt="squid-game-title" id="squid" />
+
   <div class="button">
+
     <button id="easy-btn">Easy</button>
     <button id="med-btn">Medium</button>
     <button id="hard-btn">Hard</button>
-    <button id="stop-btn">STOP</button>
-    <button id="reset-btn">RESET</button>
+    <button id="stop-btn"></button>
+    <button id="reset-btn"></button>
+
     </div> 
 
 
   <div class="div-canvas">
+
+    <div class="instructions" id="instructions">
+      <h3> Instructions</h3>
+        <h4> Player 1 </h4>
+         <p> <img src="../docs/assets/images/key_w.png" id="key-w" alt="key-w image" /> to move up <br> <img src="../docs/assets/images/key_s.png" id="key-s" alt="key-s image" /> to move down </p>
+        <h4> Player 2 </h4>
+         <p> <img src="../docs/assets/images/key_up.png" id="key-up" alt="key-up image"/> to move up <br> <img src="../docs/assets/images/key_down.png" id="key-down" alt="key-down image" /> to move down</p>
+
+         <p><span>Note:</span> avoid holding the keys for too long</p>
+
+    </div>
   <canvas id="table" width="1000" height="600" style="border: 2px solid black"> 
   <div class="score" id="score"> </div> 
   </canvas> 
   </div>
 
 
-<script src="scripts/sounds.js"></script>
-<script src="scripts/components.js"></script>
-<script src="scripts/game.js"></script>    
-<script src="scripts/main.js"></script>  
-  
+<script src="./scripts/sounds.js"></script>
+<script src="./scripts/components.js"></script>
+<script src="./scripts/game.js"></script>    
+<script src="./scripts/main.js"></script>  
+
 </body>
 
 </html>

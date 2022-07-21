@@ -1,52 +1,97 @@
 body {
-    background-color: red ;
+    background-color: #FFA07A;
 }
 
 .div-canvas {   
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
 }
 
- /*  #table {
- background-image: url('../docs/assets/images/table__3-removebg-preview.png');
- background-repeat: no-repeat;
- background-position: center;
- background-size: 950px 550px;
- background-color: transparent;
-} */ 
+.instructions {
+        border: 2px solid black ;
+        border-style: solid;
+        background-color: red;
+        border-radius: 20px;
+        padding: 15px;
+        position: absolute;
+        left: 15px;
+        width: 150px;
+        font-family: monospace;
+        font-size: 13px;
+        text-align: center;
+}
+
+#table {
+  border-radius: 50px;
+}  
 
 .button {
     display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 10px;
+    justify-content: center;
+    padding: 0 0 20px 0;
+    margin-top: 0;
+    height: 30px;
 }
 
 #easy-btn, 
 #med-btn, 
 #hard-btn {
-    background-color: yellow;
-    color: red;
+    background-color: #F55B1E;
+    color: white;  
     border-radius: 20px;
-    font-family: sans-serif;
-    font-size: 20px;
-    box-shadow: 5px 5px ;
+    font-family: monospace;
+    font-size: 16px;
+    width: 80px;
+    height: 40px;
 }
 
 #stop-btn {
-    background-color: red;
-    color: yellow;
+    background-image: url('./docs/assets/images/stop\ button.png');
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
     border-radius: 20px;
-    font-family: sans-serif;
-    font-size: 30px;
+  
 }
 
 #reset-btn {
-    background-color: red;
-    color: yellow;
+    background-image: url('./docs/assets/images/reset\ button.png');
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
     border-radius: 20px;
-    font-family: sans-serif;
-    font-size: 30px;
 }
 
+
+#key-w{
+    width: 18px;
+    height: 18px;
+}
+
+#key-s{
+    width: 18px;
+    height: 18px;
+}
+
+#key-up{
+    width: 18px;
+    height: 18px;
+}
+
+#key-down{
+    width: 18px;
+    height: 18px;
+}
+
+#squid {
+    height: 60x;
+    width: 200px;
+    margin-bottom: 0;
+}
+
+span {
+    font-weight: bold; 
+}
