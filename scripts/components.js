@@ -27,9 +27,9 @@ class Component {
       this.speedX *= -1;
     } else if (this.detectPlayerTwoCollision()) {
       this.speedX *= -1
-
     } 
     }
+   
 
     detectPlayerOneCollision() {
       return (this.y + this.speedY) >= player1.y - player1.height &&
@@ -45,6 +45,7 @@ class Component {
           this.x <= player2.x + player2.width &&
           this.y + this.speedY <= player2.y + player2.height
     }
+  
 
     newPos() {
 

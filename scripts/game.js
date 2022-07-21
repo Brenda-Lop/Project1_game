@@ -30,16 +30,16 @@ class Game {
 
     reset = () => {
         this.ball.x = 500;
-        this.ball.y = 300;
+        this.ball.y = 250;
         this.frames = 0;    
     } 
 
     resetGame = (difficulty) => {
         this.stop();
-        this.player1.y = 280;
-        this.player2.y = 280;
+        this.player1.y = 220;
+        this.player2.y = 220;
         this.ball.x = 500;
-        this.ball.y = 300;
+        this.ball.y = 250;
         this.scorePlayer1 = 0;
         this.scorePlayer2 = 0;
         this.frames = 0;
