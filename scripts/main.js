@@ -15,7 +15,7 @@ const starImg = new Image();
 starImg.addEventListener('load', function () {
  // ctx.drawImage(starImg, 500, 300, 50, 50);
 });
-starImg.src = '../docs/assets/images/star.png';
+starImg.src = './docs/assets/images/star.png';
 
  function drawCenter() {  
   ctx.drawImage(starImg, 370, 140, 250, 250);
