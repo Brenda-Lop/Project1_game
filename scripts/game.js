@@ -24,7 +24,7 @@ class Game {
     }
 
     stop() {
-        clearInterval(this.interval); // clearing the interval will stop the game
+        clearInterval(this.interval);
         this.isRunning = false;
     }
 
@@ -47,22 +47,18 @@ class Game {
         this.ball.speedY = difficulty
         this.start();
      }
- 
 
     detectPlayerOneGoal() {
-
-    return (this.ball.right() >= this.goalRight.left()  &&
-    this.ball.bottom() >= this.goalRight.top() &&
-    this.ball.top() <= this.goalRight.bottom())
+       return (this.ball.right() >= this.goalRight.left()  &&
+       this.ball.bottom() >= this.goalRight.top() &&
+       this.ball.top() <= this.goalRight.bottom())
     }
 
     detectPlayerTwoGoal() {
-
-    return (this.ball.left() <= this.goalLeft.right()  &&
-    this.ball.bottom() >= this.goalLeft.top() &&
-    this.ball.top() <= this.goalLeft.bottom())
+       return (this.ball.left() <= this.goalLeft.right()  &&
+       this.ball.bottom() >= this.goalLeft.top() &&
+       this.ball.top() <= this.goalLeft.bottom())
     }
-
 
     score() {
 
@@ -75,13 +71,11 @@ class Game {
             this.reset()
         }
             this.ctx.font = '50px monospace';
-            this.ctx.fillStyle = 'grey';
+            this.ctx.fillStyle = 'black';
             this.ctx.fillText(`${this.scorePlayer1} | ${this.scorePlayer2}`, 420, 50);
-      }
-
+    }
       
     checkWinner() {
-
 
      if(this.scorePlayer1 === 5) {
         this.stop();
@@ -98,7 +92,6 @@ class Game {
         this.ctx.fillText('PLAYER 2 HAS DEFEATED BOZO!', 250, 300);
         mySound.play();
        }
-
     }
 
     drawGame() {

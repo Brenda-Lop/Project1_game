@@ -66,21 +66,9 @@ body {
 }
 
 
-#key-w{
-    width: 18px;
-    height: 18px;
-}
-
-#key-s{
-    width: 18px;
-    height: 18px;
-}
-
-#key-up{
-    width: 18px;
-    height: 18px;
-}
-
+#key-w,
+#key-s,
+#key-up,
 #key-down{
     width: 18px;
     height: 18px;

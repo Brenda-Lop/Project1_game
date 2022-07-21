@@ -2,8 +2,8 @@ let canvas = document.getElementById('table');
 let ctx = canvas.getContext('2d');
 
 
-const cWidth = canvas.width; // 1000px
-const cHeight = canvas.height; // 600px
+const cWidth = canvas.width; 
+const cHeight = canvas.height; 
 
 function drawRect() {
 ctx.fillStyle = '#E8F1F4';
@@ -21,15 +21,12 @@ starImg.src = '../docs/assets/images/star.png';
   ctx.drawImage(starImg, 350, 150, 300, 300);
 }
 
-//new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight)
   let game; 
   let player1;
   let player2;
   let ball;
   let goalLeft;
   let goalRight; 
-
-//adding players key controls
 
    document.addEventListener('keydown', (e) => {
     switch(e.code) {
@@ -53,14 +50,12 @@ starImg.src = '../docs/assets/images/star.png';
     player2.speedY = 0;
     });
 
-// new attributes
-
    let difficulty = 4
    let mySound;
-   let myMusic;
 
-   //General settings
-   mySound = new sound("../docs/assets/sounds/Lula Lá brilha uma estrela (mp3cut.net).mp3");
+   // General settings outside the buttons
+
+   mySound = new sound("../docs/assets/sounds/Lula Lá brilha uma estrela.mp3");
    player1 = new Component(10, 60, 'black', 100, 280, ctx, 0, 0); 
    player2 = new Component(10, 60, 'black', 900, 280, ctx, 0, 0);
    goalLeft = new Component(10, 350, 'black', 0, 115, ctx, 0, 0);
@@ -76,7 +71,7 @@ starImg.src = '../docs/assets/images/star.png';
       game.start(); 
   
       } else if(game) {
-      game.resetGame(difficulty);
+       game.resetGame(difficulty);
       }  
     });
 
@@ -90,7 +85,7 @@ starImg.src = '../docs/assets/images/star.png';
        game.start(); 
   
       } else if(game) {
-      game.resetGame(difficulty);      
+       game.resetGame(difficulty);      
     } 
     });
 
@@ -103,10 +98,9 @@ starImg.src = '../docs/assets/images/star.png';
        game.start(); 
   
   } else if(game) {
-      game.resetGame(difficulty);
+     game.resetGame(difficulty);
     } 
     });
-    
 
    const resetBtn = document.getElementById('reset-btn');
    resetBtn.addEventListener('click', () => {

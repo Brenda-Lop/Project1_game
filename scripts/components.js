@@ -6,8 +6,8 @@ class Component {
       this.x = x;
       this.y = y;
       this.ctx = ctx;
-      this.speedX = speedX; //acceleration
-      this.speedY = speedY; // acceleration
+      this.speedX = speedX; 
+      this.speedY = speedY; 
       this.isRunning = false;
       const ballImg = new Image();
       ballImg.addEventListener('load', () => {}); 
@@ -29,22 +29,22 @@ class Component {
       this.speedX *= -1
 
     } 
-  }
-  
- detectPlayerOneCollision() {
+    }
+
+    detectPlayerOneCollision() {
       return (this.y + this.speedY) >= player1.y - player1.height &&
           this.x + this.width >= player1.x &&
           this.x <= player1.x + player1.width &&
           this.y + this.speedY <= player1.y + player1.height
-        } 
+    } 
     
 
-  detectPlayerTwoCollision() {
+    detectPlayerTwoCollision() {
       return this.y + this.speedY >= player2.y - player2.height &&
           this.x + this.width >= player2.x &&
           this.x <= player2.x + player2.width &&
           this.y + this.speedY <= player2.y + player2.height
-        }
+    }
 
     newPos() {
 
@@ -84,11 +84,11 @@ class Component {
     draw() {
         this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.x, this.y, this.width, this.height);
-      } 
+    } 
       
       drawBall(){
         this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
-      }
+    }
   }
 
 
