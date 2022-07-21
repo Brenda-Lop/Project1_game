@@ -81,7 +81,7 @@ class Game {
         this.stop();
         this.ctx.font = '30px monospace';
         this.ctx.fillStyle = 'black';
-        this.ctx.fillText( 'PLAYER 1 HAS DEFEATED BOZO!', 250, 300);
+        this.ctx.fillText( 'PLAYER 1 HAS DEFEATED BOZO!', 250, 250);
         mySound.play();
        }
 
@@ -89,7 +89,7 @@ class Game {
         this.stop();
         this.ctx.font = '30px monospace';
         this.ctx.fillStyle = 'black';
-        this.ctx.fillText('PLAYER 2 HAS DEFEATED BOZO!', 250, 300);
+        this.ctx.fillText('PLAYER 2 HAS DEFEATED BOZO!', 250, 250);
         mySound.play();
        }
     }

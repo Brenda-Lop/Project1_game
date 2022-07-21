@@ -50,7 +50,7 @@ starImg.src = './docs/assets/images/star.png';
     player2.speedY = 0;
     });
 
-   let difficulty = 4
+   let difficulty = 5
    let mySound;
 
    // General settings outside the buttons
@@ -63,7 +63,7 @@ starImg.src = './docs/assets/images/star.png';
 
   const easyBtn = document.getElementById('easy-btn');
   easyBtn.addEventListener('click', () =>  {   
-    difficulty = 4;
+    difficulty = 5;
       if(!game) {
        ball = new Component(35, 35, 'yellow', 500, 250, ctx, difficulty, difficulty, './docs/assets/images/cara_bozo.png');
       game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
@@ -78,7 +78,7 @@ starImg.src = './docs/assets/images/star.png';
   const medBtn = document.getElementById('med-btn');
   medBtn.addEventListener('click', () =>  {
   
-    difficulty = 5;
+    difficulty = 6;
   if(!game) {
        ball = new Component(35, 35, 'yellow', 500, 300, ctx, difficulty, difficulty, './docs/assets/images/cara_bozo.png');
        game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
@@ -91,7 +91,7 @@ starImg.src = './docs/assets/images/star.png';
 
   const hardBtn = document.getElementById('hard-btn');
   hardBtn.addEventListener('click', () =>  {
-    difficulty = 6;
+    difficulty = 7;
     if (!game) {
        ball = new Component(35, 35, 'yellow', 500, 300, ctx, difficulty, difficulty, './docs/assets/images/cara_bozo.png');
        game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
