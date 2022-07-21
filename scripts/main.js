@@ -55,7 +55,7 @@ starImg.src = './docs/assets/images/star.png';
 
    // General settings outside the buttons
 
-   mySound = new sound("../docs/assets/sounds/Lula Lá brilha uma estrela.mp3");
+   mySound = new sound("./docs/assets/sounds/Lula Lá brilha uma estrela.mp3");
    player1 = new Component(10, 60, 'black', 100, 220, ctx, 0, 0); 
    player2 = new Component(10, 60, 'black', 900, 220, ctx, 0, 0);
    goalLeft = new Component(10, 350, 'black', 0, 70, ctx, 0, 0);
@@ -65,7 +65,7 @@ starImg.src = './docs/assets/images/star.png';
   easyBtn.addEventListener('click', () =>  {   
     difficulty = 4;
       if(!game) {
-       ball = new Component(35, 35, 'yellow', 500, 250, ctx, difficulty, difficulty, '../docs/assets/images/cara_bozo.png');
+       ball = new Component(35, 35, 'yellow', 500, 250, ctx, difficulty, difficulty, './docs/assets/images/cara_bozo.png');
       game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
      
       game.start(); 
@@ -80,7 +80,7 @@ starImg.src = './docs/assets/images/star.png';
   
     difficulty = 5;
   if(!game) {
-       ball = new Component(35, 35, 'yellow', 500, 300, ctx, difficulty, difficulty, '../docs/assets/images/cara_bozo.png');
+       ball = new Component(35, 35, 'yellow', 500, 300, ctx, difficulty, difficulty, './docs/assets/images/cara_bozo.png');
        game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
        game.start(); 
   
@@ -93,7 +93,7 @@ starImg.src = './docs/assets/images/star.png';
   hardBtn.addEventListener('click', () =>  {
     difficulty = 6;
     if (!game) {
-       ball = new Component(35, 35, 'yellow', 500, 300, ctx, difficulty, difficulty, '../docs/assets/images/cara_bozo.png');
+       ball = new Component(35, 35, 'yellow', 500, 300, ctx, difficulty, difficulty, './docs/assets/images/cara_bozo.png');
        game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
        game.start(); 
   
