@@ -17,6 +17,7 @@ class Game {
 
     start() {
         this.interval = setInterval(this.updateGameArea, 20);
+        mySound.stop();
     }
 
     clear() {

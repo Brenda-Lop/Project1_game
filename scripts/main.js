@@ -50,7 +50,7 @@ starImg.src = './docs/assets/images/star.png';
     player2.speedY = 0;
     });
 
-   let difficulty = 5
+   let difficulty = 4;
    let mySound;
 
    // General settings outside the buttons
@@ -63,7 +63,7 @@ starImg.src = './docs/assets/images/star.png';
 
   const easyBtn = document.getElementById('easy-btn');
   easyBtn.addEventListener('click', () =>  {   
-    difficulty = 5;
+    difficulty = 4;
       if(!game) {
        ball = new Component(35, 35, 'yellow', 500, 250, ctx, difficulty, difficulty, './docs/assets/images/cara_bozo.png');
       game = new Game(ctx, cWidth, cHeight, player1, player2, ball, goalLeft, goalRight);
